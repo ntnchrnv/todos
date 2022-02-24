@@ -1,16 +1,13 @@
+
 .todo_list
 {
-    padding: 0px;
-}
-
-.list_item
-{
+    padding-left: 0px;
     list-style-type: none;
 }
 
 .delete_btn
 {
-    margin-left: 125px;
+    margin-left: 104px;
 }
 
 .footer_hide
@@ -21,14 +18,16 @@
 .footer_show
 {
     visibility: visible;
+    display: flex;
 }
 
 .filters
 {
-    padding: 0px;
+    margin-top: 0px;
 }
 
 .filters li
 {
+    list-style-type: none;
     display: inline;
 }
