@@ -2,11 +2,14 @@ const input = document.querySelector('input');
 const todoList = document.querySelector('.todo_list');
 const footer=document.querySelector('.footer_hide');
 const todoCount=document.querySelector('strong');
+let listCount = 0;
 
-input.addEventListener('keyup', function (e)
+input.addEventListener
+(
+    'keyup', function (e)
     {
         let myItem = input.value;
-
+        
         if (e.key === 'Enter' && myItem!=="")
         {
             let createItem = document.createElement('li');
@@ -32,9 +35,10 @@ input.addEventListener('keyup', function (e)
             createDiv.append(createDeleteButton);
                 
             createListText.textContent = myItem;
-                
-            let listCount=todoList.childNodes.length-1;
-            todoCount.textContent = listCount;
+               
+            listCount++;
+            todoCount.textContent = listCount;      
+           
             footer.setAttribute('class','footer_show');
 
             input.value = '';
@@ -42,6 +46,8 @@ input.addEventListener('keyup', function (e)
             createDeleteButton.onclick = function()
             {
                 todoList.removeChild(createItem);
+                listCount--;
+                todoCount.textContent = listCount;
             }
         }
     }    
