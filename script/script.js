@@ -3,6 +3,10 @@ const todoList = document.querySelector('.todo_list');
 const footer=document.querySelector('.footer_hide');
 const todoCount=document.querySelector('strong');
 let listCount = 0;
+const allBtn = document.querySelector('.all_btn');
+const activeBtn = document.querySelector('.active_btn');
+const completedBtn = document.querySelector('.completed_btn');
+const clearBtn =document.querySelector('.clear_btn');
 
 input.addEventListener
 (
@@ -14,7 +18,7 @@ input.addEventListener
         {
             let createItem = document.createElement('li');
             todoList.append(createItem);
-            createItem.className='';
+            createItem.className='list_item';
                 
             let createDiv = document.createElement('div');
             createDiv.className='view'
@@ -45,18 +49,62 @@ input.addEventListener
 
             createDeleteButton.onclick = function()
             {
-                todoList.removeChild(createItem);
-                listCount--;
-                todoCount.textContent = listCount;
+                if(listCount>1)
+                {
+                    todoList.removeChild(createItem);
+                    listCount--;
+                    todoCount.textContent = listCount;
+                }
+                else
+                {
+                    todoList.removeChild(createItem);
+                    listCount--;
+                    todoCount.textContent = listCount;
+                    footer.setAttribute('class','footer_hide');
+                }
+            }
+
+            activeBtn.onclick = function()
+            {
+                let checkBox = document.querySelector('.toggle:checked');
+                let listItem = document.querySelector('.list_item');
+
+                if (checkBox)
+                {
+                   
+                }
+                else
+                {
+                    alert('Ничего не выбрано');
+                }
+                 
             }
         }
     }    
 )
 
-/* createDeleteButton.onclick = function()
-{
-    todoList.removeChild(createItem);
-    if(listCount=0){footer.setAttribute('class','footer_hide')};
-}
-}; */
-/* if (createItem==null){filtersList.setAttribute('class','filters_hide')}; */
+/* $('#filterButt').click(function(){
+    $('#tableId1 tbody').find('tr:not(:has(:checkbox:checked))').hide();
+});
+
+
+
+$('#resetButt').click(function(){
+    $('#tableId1').find('tr').show();
+    $('#tableId1 input:checkbox').removeAttr('checked');
+}); */
+
+
+/* const inputs = document.querySelectorAll('input');
+const container = document.querySelector('.container');
+
+inputs.forEach(el => {
+    el.addEventListener('click', () => {
+        container.textContent = '';
+        let input_checkeds = document.querySelectorAll('input:checked');
+
+        input_checkeds.forEach(el_checked => {
+            container.insertAdjacentHTML('beforeend', el_checked.value);
+        });
+    });
+}); */

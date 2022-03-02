@@ -5,6 +5,11 @@
     list-style-type: none;
 }
 
+.list_item_hide
+{
+    visibility: hidden;
+}
+
 .delete_btn
 {
     margin-left: 104px;
