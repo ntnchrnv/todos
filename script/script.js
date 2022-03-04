@@ -1,4 +1,5 @@
 const input = document.querySelector('input');
+const sectionMain = document.querySelector('.main_hide');
 const todoList = document.querySelector('.todo_list');
 const footer=document.querySelector('.footer_hide');
 const todoCount=document.querySelector('strong');
@@ -44,6 +45,7 @@ input.addEventListener
             todoCount.textContent = listCount;      
            
             footer.setAttribute('class','footer_show');
+            sectionMain.setAttribute('class','main_show');
 
             input.value = '';
 
@@ -71,7 +73,7 @@ input.addEventListener
 
                 if (checkBox)
                 {
-                   
+                    listItem.setAttribute('class','list_item_hide');
                 }
                 else
                 {
